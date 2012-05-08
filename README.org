@@ -48,4 +48,4 @@ hierarchy:
 
 
 ~replicate.R~ defines some defaults that are used in all scripts; if you run the scripts independently, they will
-go looking for those values.
+go looking for those values. 
