@@ -1,0 +1,48 @@
+Author: Mark Huberty
+Begun: 8 May 2012
+
+This directory contains the files for the Energy Policy version of "Green Exports and the Global Product Space." 
+
+The original code for the original version of the paper can be found in ~/Documents/trade_data
+
+All analysis was done in R unless otherwise noted. 
+
+SYSTEM SPECIFICATION:
+AMD Phenom II X4 3.2 ghz
+16gb RAM
+nVidia 9500 gpu
+R v2.13.0 compiled vs. GOTO BLAS
+
+
+The replication files are as follows:
+
+1. calculate_rca.R
+   Provides the RCA calculations for the UN COMTRADE data
+2. calculate_prox.R
+   Calculates the proximity spaces based on the COMTRADE RCA calculations
+3. summarize_prox.R
+   Averages proximity files over years to get stable product spaces
+4. plot_product_space.py
+   Generates the product space representation of the proximity matrix and plots
+   using the networkx libraries for python
+5. construct_model_matrix.R
+   Constructs the model matrix used for the figures and linear regressions. Merges in data on market size as 
+   described in the text
+6. analyze_model_matrix.R
+   Performs regressions as described in the text; generates output tables and figures
+
+The file replicate.R will run all of these files in sequence if desired. The working directory
+in that file should be changed to reflect the user's directory structure. It assumes the following 
+hierarchy:
+
+./code          Location of all .R and .py files
+./data          Location of all data
+./figures       Location of all figures
+./scripts       Location of some helper scripts for data acquisition, not run by replicate.R
+                get_bulk_trade_data.R: scripts download of COMTRADE data
+                reformat_comtrade_list.R: reformats country data into sensible structure
+                write_yearly_files.R: outputs yearly (rather than country-wise) COMTRADE files
+
+replicate.R defines some defaults that are used in all scripts; if you run the scripts independently, they will
+go looking for those values.
+
